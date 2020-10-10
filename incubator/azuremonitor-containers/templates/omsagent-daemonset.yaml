@@ -25,6 +25,7 @@ spec:
     dockerProviderVersion: {{ .Values.omsagent.image.dockerProviderVersion }}
     schema-versions: "v1"
   spec:
+   pritorityClassName: omsagent-daemonset
    {{- if .Values.omsagent.rbac }}
    serviceAccountName: omsagent
    {{- end }}

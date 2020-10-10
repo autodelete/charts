@@ -62,6 +62,10 @@ omsagent:
                   operator: NotIn
                   values:
                     - virtual-kubelet
+    ## NOTE: Daemonset generally needs to run with higher than default priority to prevent
+    ## application pods with default priority to fill up the node without giving omsagent container
+    ## to be scheduled there.
+    priority: 1000
   deployment:
     affinity:
       nodeAffinity:
